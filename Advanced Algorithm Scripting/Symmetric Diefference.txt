@@ -1,0 +1,41 @@
+
+function sym() {
+  var res = [];
+  var arrObj = {};
+  
+  for(var i = 0; i < arguments.length; i++) {
+    arguments[i].forEach(function(item) {
+      
+      if (arrObj.hasOwnProperty(item)) {
+        
+        if (arrObj[item].current + 1 === i) {
+          ++arrObj[item].count;
+          arrObj[item].maps = "sym";
+        }
+        else if (arrObj[item].current + 1 < i) {
+          if (arrObj[item].maps === "sym")
+            arrObj[item] = {count: 1, val: item, maps: "", current: i};
+          else {
+            ++arrObj[item].count;
+            arrObj[item].maps = "sym";
+          }
+        }
+        
+      }
+      else if (!arrObj.hasOwnProperty(item)) {
+        arrObj[item] = {count: 1, val: item, maps: "", current: i};
+      }
+    });
+  }
+    
+  for(var items in arrObj) {
+    if (arrObj.hasOwnProperty(items) && arrObj[items].count === 1 && arrObj[items].maps !== "sym") {
+      res.push(arrObj[items].val);
+    }
+  }
+  
+  
+  return res;
+}
+
+sym([3, 3, 3, 2, 5], [2, 1, 5, 7], [3, 4, 6, 6], [1, 2, 3]);

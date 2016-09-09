@@ -1,0 +1,23 @@
+
+function uniteUnique(arr) {
+  var args = Array.prototype.slice.call(arguments);
+  var objSize = arguments.length;
+  var newArr = [];
+  
+  for (var i = 0; i < objSize; i++) {
+    for (var j = 0; j < args[i].length; j++) {
+      if (newArr.length === 0) {
+        newArr.push(args[i][j]);
+      }
+      else {
+        if (newArr.indexOf(args[i][j]) === -1) {
+          newArr.push(args[i][j]);
+        }
+      }
+    }
+  }
+  
+  return newArr;
+}
+
+uniteUnique([1, 3, 2], [5, 2, 1, 4], [2, 1]);

@@ -1,0 +1,20 @@
+
+function translatePigLatin(str) {
+  var vowel = ["a", "i", "u", "e", "o"];
+  
+  if (vowel.indexOf(str[0]) !== -1) {
+    str += "way";
+  }
+  
+  else if (vowel.indexOf(str[1]) !== -1) {
+    str = str.substr(1, str.length) + str[0] + "ay";
+  }
+  
+  else {
+    str = str.substr(2, str.length) + str[0] + str[1] + "ay";
+  }
+  
+  return str;
+}
+
+translatePigLatin("glove");

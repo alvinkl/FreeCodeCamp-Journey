@@ -1,0 +1,14 @@
+
+function booWho(bool) {
+  // What is the new fad diet for ghost developers? The Boolean.
+  var fTrue = false;
+  var tTrue = Boolean(true);
+  
+  if (bool === fTrue || bool === tTrue) {
+    return true;
+  }
+  
+  return false;
+}
+
+booWho(false);

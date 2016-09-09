@@ -1,0 +1,16 @@
+
+function dropElements(arr, func) {
+  // Drop them elements.
+  
+  for(var i = 0; i < 4; i++) {
+    if (!func(arr[0])) {
+      arr.shift();
+    }
+    else break;
+  }
+  
+  
+  return arr;
+}
+
+dropElements([1, 2, 3, 4], function(n) {return n > 5;});

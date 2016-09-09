@@ -1,0 +1,94 @@
+
+function checkCashRegister(price, cash, cid) {
+  var change = (cash - price) * 100;
+  // Here is your change, ma'am.
+  cash *= 100;
+  var total = 0;
+  var money = createMoney(cid.reverse());
+  var result = [];
+  
+  for(var i in money) {
+    total += money[i].total;
+  }
+  
+  if (change == total) {
+    return "Closed";
+  }
+  else if (cash > total) {
+    return "Insufficient Funds";
+  }
+  else {
+    var cidAvail = 0;
+    var index = 0;
+    
+    while (cidAvail !== change && index < Object.keys(money).length) {
+      if (money[index].val <= (change - cidAvail)) {
+        var temp = 0;
+        while (money[index].total !== 0 && (cidAvail + money[index].val) <= change) {
+          
+          cidAvail += money[index].val;
+          temp += money[index].val;
+          money[index].total -= money[index].val;
+
+        }
+        result.push(createMoneyArr(money[index], temp));
+      }
+      index++;
+    }
+  }
+
+  return result; 
+}
+
+
+function createMoneyArr(obj, val) {
+  var arr = [obj.type, val/100];
+  return arr;
+}
+
+function createMoney(arr) {
+  var moneys = {};
+  
+  for(var i = 0; i < arr.length; i++) {
+    moneys[i] = new Money(arr[i]);
+  }
+  
+  return moneys;
+}
+
+function Money(arr) {
+  this.total = arr[1] * 100;
+  this.type = arr[0];
+  
+  switch(arr[0]) {
+    case "PENNY":
+      this.val = 1;
+      break;
+    case "NICKEL":
+      this.val = 5;
+      break;
+    case "DIME":
+      this.val = 10;
+      break;
+    case "QUARTER":
+      this.val = 25;
+      break;
+    case "ONE":
+      this.val = 100;
+      break;
+    case "FIVE":
+      this.val = 500;
+      break;
+    case "TEN":
+      this.val = 1000;
+      break;
+    case "TWENTY":
+      this.val = 2000;
+      break;
+    case "ONE HUNDRED":
+      this.val = 10000;
+      break;
+  }
+}
+
+checkCashRegister(3.26, 100.00, [["PENNY", 1.01], ["NICKEL", 2.05], ["DIME", 3.10], ["QUARTER", 4.25], ["ONE", 90.00], ["FIVE", 55.00], ["TEN", 20.00], ["TWENTY", 60.00], ["ONE HUNDRED", 100.00]]);

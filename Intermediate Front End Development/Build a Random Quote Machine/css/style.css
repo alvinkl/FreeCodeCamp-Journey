@@ -1,0 +1,33 @@
+body {
+  position: relative;
+  background-image: url("https://4.bp.blogspot.com/-MvC-b7NP2og/VO3_OvdON0I/AAAAAAABduU/8fUplha1Sdo/s0/Sunset_at_Tiergarten_UHD.jpg");
+  font-size: 15px;
+  font-family: cursive;
+}
+
+.top-buffer {
+  margin-top: 10%;
+}
+
+.size-buffer {
+  padding: 20px;
+  width: 800px;
+  background-color: rgba(255,255,255,.2);
+}
+
+.quote {
+  font-size: 40px;
+  font-family: 'Amatic SC', cursive;
+  font-weight: bold;
+}
+
+.name {
+  font-family: 'Amatic SC', cursive;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.newQuote {
+  background-color: rgba(0,0,0,.3);
+  color: white;
+}

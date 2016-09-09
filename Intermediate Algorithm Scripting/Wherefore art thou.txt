@@ -1,0 +1,34 @@
+
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+  var cmpAtr = Object.keys(source);
+  var objLength = Object.keys(collection).length;
+  for(var i = 0; i < objLength; i++) {
+    if(cmpAtr.length > 1) {
+      var j = 0;
+      var mark = 0;
+      while(j < cmpAtr.length) {
+        var check = cmpAtr[j];
+        if(collection[i].hasOwnProperty(check)) {
+          mark++;
+        }
+        else mark--;
+        j++;
+      }
+      
+      if (mark > 0) arr.push(collection[i]);
+    }
+    
+    else {
+      if(collection[i][cmpAtr] === source[cmpAtr]) {
+        arr.push(collection[i]);
+      }
+    }
+  }
+  // Only change code above this line
+  return arr;
+}
+
+whatIsInAName([{ "a": 1, "b": 2 }, { "a": 1 }, { "a": 1, "b": 2, "c": 2 }], { "a": 1, "b": 2 });

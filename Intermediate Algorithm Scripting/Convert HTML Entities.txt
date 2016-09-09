@@ -1,0 +1,17 @@
+
+function convertHTML(str) {
+  // &colon;&rpar;
+  var htmlEl = ["&",     "<",    ">",    '"',      "'"];
+  var htmlEn = ["&amp;", "&lt;", "&gt;", "&quot;", "&apos;"];
+  
+  var regex;
+  
+  for (var i = 0; i < htmlEl.length; i++) {
+    regex = new RegExp(htmlEl[i], "g"); 
+    str = str.replace(regex, htmlEn[i]);
+  }
+  
+  return str;
+}
+
+convertHTML("Sixty > twelve");

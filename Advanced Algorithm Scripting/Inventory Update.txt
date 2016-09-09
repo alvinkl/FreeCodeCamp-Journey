@@ -1,0 +1,53 @@
+
+function updateInventory(arr1, arr2) {
+  // All inventory must be accounted for or you're fired! 
+
+  var obj1 = toObj(arr1);
+  var obj2 = toObj(arr2);
+  
+  for(var key in obj1) {
+    if (obj2.hasOwnProperty(key)) {
+      obj2[key] += obj1[key];  
+    }
+    else {
+      obj2[key] = obj1[key];
+    }
+  }
+  
+  var keys = Object.keys(obj2);
+  keys.sort();
+  
+  var result = [];
+  
+  for(var i = 0; i < keys.length; i++) {
+    result.push([obj2[keys[i]], keys[i]]);
+  }
+  
+  return result;
+}
+
+function toObj(arr) {
+  var obj = {};
+  for(var i = 0;i < arr.length; i++) {
+    obj[arr[i][1]] = arr[i][0];
+  }
+  
+  return obj;
+}
+
+// Example inventory lists
+var curInv = [
+    [21, "Bowling Ball"],
+    [2, "Dirty Sock"],
+    [1, "Hair Pin"],
+    [5, "Microphone"]
+];
+
+var newInv = [
+    [2, "Hair Pin"],
+    [3, "Half-Eaten Apple"],
+    [67, "Bowling Ball"],
+    [7, "Toothpaste"]
+];
+
+updateInventory(curInv, newInv);

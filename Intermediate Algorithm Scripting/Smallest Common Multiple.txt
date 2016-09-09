@@ -1,0 +1,54 @@
+
+function smallestCommons(arr) {
+  var min = Math.min(...arr);
+  var max = Math.max(...arr);
+  
+  var minMult = min;
+  var maxMult = max;
+  
+  var mark = 0;
+  var prev = 0;
+  
+  var value = findCommon(min, max, min, max);
+  
+  do {
+    var flag = 0;
+    
+    for(var i = min; i <= max; i++) {
+      if  (value % i !== 0) {
+        flag = 1;
+        break;
+      }
+    }
+    
+    if (flag === 0) {
+      mark = 0;
+      prev = value;
+    }
+    else {
+      mark = prev = value;
+      value = findCommon(min, max, (prev + min), (prev + max));
+    }
+    
+  }while(mark === prev);
+    
+    
+  return value;
+}
+
+function findCommon(min, max, start, end) {
+  var minMult = start;
+  var maxMult = end;
+  
+  while(minMult !== maxMult) {
+    minMult += min;
+    
+    if (minMult > maxMult) {
+      maxMult += max;
+    }
+  }
+ 
+  return maxMult;
+}
+
+smallestCommons([1,5]);

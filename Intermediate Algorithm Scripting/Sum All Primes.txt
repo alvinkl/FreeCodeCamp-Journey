@@ -1,0 +1,21 @@
+
+function sumPrimes(num) {
+  var total = [];
+  var mark = 0;
+  
+  for(var i = 2; i <= num; i++) {
+    for(var j = 2; j <= i/2; ++j) {
+      mark = 0;
+      if (i % j === 0) {
+        mark = 1;
+        break;
+      }
+    }
+    if(mark !== 1) total.push(i);
+  }
+
+  
+  return total.reduce(function(a,b) { return a + b; });
+}
+
+sumPrimes(10);

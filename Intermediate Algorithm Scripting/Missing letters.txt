@@ -1,0 +1,15 @@
+
+function fearNotLetter(str) {
+  for(var i = 0; i < str.length - 1; i++) {
+    var code1 = str.charCodeAt(i+1);
+    var code2 = str.charCodeAt(i);
+    
+    if((code1 - code2) > 1) {
+      return String.fromCharCode(code2 + 1);
+    }
+  }
+  
+  return undefined;
+}
+
+fearNotLetter("abce");

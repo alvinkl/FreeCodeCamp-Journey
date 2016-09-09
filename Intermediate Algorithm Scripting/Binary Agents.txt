@@ -1,0 +1,31 @@
+
+function binaryAgent(str) {
+  var newStr = [];
+  var binary = str.split(" ");
+  
+  for(var i = 0; i < binary.length; i++) {
+    var toChar = String.fromCharCode(parseBinToInt(binary[i]));
+    
+    newStr.push(toChar);
+  }
+  
+  
+  
+  return newStr.join("");
+}
+
+function parseBinToInt(bin) {
+  var binary = bin.split("");
+  binary = binary.reverse();
+  var total = 0;
+  
+  for(var i = 0; i < binary.length; i++) {
+    if (binary[i] == 1) {
+      total += Math.pow(2, i);
+    }
+  }
+  
+  return total;
+}
+
+binaryAgent("01000001 01110010 01100101 01101110 00100111 01110100 00100000 01100010 01101111 01101110 01100110 01101001 01110010 01100101 01110011 00100000 01100110 01110101 01101110 00100001 00111111");
