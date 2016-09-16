@@ -1,0 +1,52 @@
+body {
+  font-family: 'Indie Flower', cursive;
+}
+
+.cont {
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 70px;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 40px;
+}
+
+button {
+  border: none;
+}
+
+.bt {
+  height: 200px;
+  width: 200px;
+  margin: 0 25px;
+}
+
+#start {
+  margin-top: 50px;
+  padding: 10px;
+}
+
+#reset {
+  margin-bottom: 50px;
+  padding: 10px;
+}
+
+#btn-0 {
+  background-color: #2ecc71;
+}
+
+#btn-1 {
+  background-color: #e74c3c;
+}
+
+#btn-2 {
+  background-color: #f1c40f;
+}
+
+#btn-3 {
+  background-color: #3498db;
+}

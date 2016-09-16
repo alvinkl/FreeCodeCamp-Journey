@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html >
+  <head>
+    <meta charset="UTF-8">
+    <title>FreeCodeCamp: Pomodoro Clock</title>
+    
+    
+    
+    <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+<link rel='stylesheet prefetch' href='https://fonts.googleapis.com/css?family=Oswald'>
+
+        <link rel="stylesheet" href="css/style.css">
+
+    
+    
+    
+  </head>
+
+  <body>
+
+    <div class="container-fluid">
+  <div class="customize">
+    <div class="row">
+      <div class="col-xs-6"><p class="text-left">Break Length</p></div>
+      <div class="col-xs-6"><p class="text-right">Session Length</p></div>
+    </div>
+    <div id="break">
+      <div class="row col-xs-6">
+        <button id="plusB" class="col-xs-4 mod">+</button>
+        <h3 id="breakLength" class="col-xs-4">5</h3>
+        <button id="minB" class="col-xs-4 mod">-</button>
+      </div>
+    </div>
+    <div id="session">
+      <div class="row col-xs-6">
+        <button id="plusS" class="col-xs-4 mod">+</button>
+        <h3 id="sessionLength" class="col-xs-4">25</h3>
+        <button id="minS" class="col-xs-4 mod">-</button>
+      </div>
+    </div>
+  </div>
+  <div id="message" class="text-center">Let's Get Started</div>
+  <div id="timer">
+    <span id="minutes">25</span>
+    <span id="middle">:</span>
+    <span id="seconds">00</span>
+  </div>
+
+  <div id="buttons" class="btn btn-block">
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+    <button id="reset">Reset</button>
+  </div>
+</div>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+
+        <script src="js/index.js"></script>
+
+    
+    
+    
+  </body>
+</html>
