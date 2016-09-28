@@ -1,0 +1,102 @@
+// Sorting not yet working :( 
+var styleT = {
+  marginTop: 100,
+  marginLeft: 'auto',
+  marginRight: 'auto',
+  width: '80%',
+  backgroundColor: '#eee',
+  fontWeight: 'bold',
+  cursor: 'default'
+}
+
+var styleTH = {
+  fontSize: 20,
+  color: 'white',
+  background: 'url("https://i.ytimg.com/vi/wJhcPwVYA1g/maxresdefault.jpg")'
+}
+
+var styleSort = {
+  backgroundColor:'#eee',
+  color:'#666666',
+  fontWeight: 'bold',
+  cursor: 'default'
+
+}
+
+
+class TableShow extends React.Component {
+  
+  render() {
+    return (
+      <div className='table-responsive'>
+        <table className='table sortable' style={styleT, styleSort} id='tab'>
+          <thead>
+            <tr>
+              <th colSpan='4' style={styleTH}>Leaderboards</th>
+            </tr>
+            <tr>
+              <th>#</th>
+              <th>Name</th>
+              <th>Recent points</th>
+              <th>All time points</th>
+            </tr>
+          </thead>
+          <TableData />
+        </table>
+      </div>
+    );
+  }
+}
+
+class TableData extends React.Component {
+  constructor() {
+    super();
+    this.state = {arrRes: []};
+  }
+  
+  getInitialState() {
+    return {
+      arrRes: [],
+      sort: true
+    }
+  }
+  
+  componentWillMount() {
+    var url = 'https://fcctop100.herokuapp.com/api/fccusers/top/recent';
+    $.ajax({
+      url: url,
+      dataType: 'json',
+      success: function(res) {
+        var users = res;
+        this.setState({arrRes: users});
+      }.bind(this),
+      error: function(xhr, status, err) {
+        console.error(url, status, err.toString());
+      }.bind(this)
+    });
+  }
+  
+  render() {
+    var count = 0;
+    var users = this.state.arrRes.map((user) => {
+      ++count;
+      var link = 'https://www.freecodecamp.com/' + user.username;
+      return (
+        <tr>
+          <td>{count}</td>
+          <td id='user'><img src={user.img}/><a href={link} target='_blank'>{user.username}</a></td>
+          <td>{user.recent}</td>
+          <td>{user.alltime}</td>
+        </tr>
+      );
+    });
+    return (
+      <tbody>{users}</tbody>
+    );
+  }
+}
+
+ReactDOM.render(<TableShow />, document.getElementById('app'));
+
+var tab = document.getElementById('tab');
+sorttable.makeSortable(tab);

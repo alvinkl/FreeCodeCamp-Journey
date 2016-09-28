@@ -1,0 +1,48 @@
+body {
+  background-color: #F2F2F2;
+  z-index: 100;
+}
+
+th {
+  text-align: center;
+  padding: 20px;
+}
+
+td {
+  text-align: center;
+  padding: 20px;
+}
+td img {
+  width: 50px;
+  heigth: 50px;
+}
+
+#user {
+  text-align: left;
+}
+
+header, footer {
+  background: url("https://i.ytimg.com/vi/wJhcPwVYA1g/maxresdefault.jpg");
+}
+
+header {
+  top: 0px;
+  height: 50px;
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+}
+header img {
+  position: relative;
+  height: 200px;
+  width: 350px;
+  margin-top: -75px;
+  margin-left: -40px;
+}
+
+footer {
+  position: static;
+  bottom: 0px;
+  height: 50px;
+  width: 100%;
+}
